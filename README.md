@@ -1,6 +1,6 @@
 🌿 Vida Verde
 
-Vida Verde é um site institucional para uma ONG de reflorestamento e educação ambiental. Desenvolvido como projeto acadêmico, utiliza HTML5, CSS3 e JavaScript para criar uma experiência interativa, moderna e responsiva.
+Vida Verde é um site institucional para uma ONG de reflorestamento e educação ambiental. Desenvolvido como projeto acadêmico, utiliza HTML5, CSS3 e JavaScript para criar uma experiência interativa, moderna e responsiva. 
 
 📌 Índice
 
