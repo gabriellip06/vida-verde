@@ -5,10 +5,15 @@ Vida Verde é um site institucional para uma ONG de reflorestamento e educação
 📌 Índice
 
 -Descrição
+
 -Funcionalidades
+
 -Tecnologias Utilizadas
+
 -Estrutura de Pastas
+
 -Como Usar
+
 -Contato
 
 📝 Descrição
@@ -16,24 +21,35 @@ Vida Verde é um site institucional para uma ONG de reflorestamento e educação
 O site da Vida Verde apresenta os projetos da ONG, permite o cadastro de voluntários e facilita o contato com a organização. Possui páginas dedicadas para:
 
 -Início – Introdução à ONG e missão.
+
 -Projetos – Listagem de iniciativas com imagens e descrições.
+
 -Cadastro – Formulário para voluntários se inscreverem.
+
 -Contato – Formulário para mensagens e dúvidas.
 
 ✨ Funcionalidades
 
 -Menu de navegação com destaque para página ativa.
+
 -Menu mobile responsivo.
+
 -Formulários com validação via JavaScript.
+
 -Layout moderno e limpo, totalmente responsivo.
+
 -Cards de projetos com imagens ilustrativas e textos explicativos.
 
 🛠 Tecnologias Utilizadas
 
 HTML5
+
 -CSS3 (grid, flexbox e variáveis CSS)
+
 -JavaScript (DOM, eventos e validação de formulários)
+
 -Google Fonts (Inter e Playfair Display)
+
 -GitHub Pages (publicação online)
 
 📁 Estrutura de Pastas
