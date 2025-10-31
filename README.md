@@ -1,6 +1,10 @@
 🌿 Vida Verde
 
+Bem-vindo ao **Vida Verde**!  
+Um projeto de ONG dedicado a (plantio, educação ambiental e engajamento comunitário)
 Vida Verde é um site institucional para uma ONG de reflorestamento e educação ambiental. Desenvolvido como projeto acadêmico, utiliza HTML5, CSS3 e JavaScript para criar uma experiência interativa, moderna e responsiva. 
+
+🌐 Acesse o site online: https://gabriellip06.github.io/vida-verde/
 
 📌 Índice
 
