@@ -1,0 +1,143 @@
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vida Verde — Contato</title>
+
+  <!-- Fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+  <!-- CSS da página -->
+  <link rel="stylesheet" href="contato.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.htm">
+        <img class="logo-img" src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=200&auto=format&fit=crop&ixlib=rb-4.0.3&s=6a2b9c0b1e5cdd8a6e5d8b0c3d5c4a2f" alt="Vida Verde">
+        <div>
+          <h1>Vida Verde</h1>
+          <p class="slogan">Plantando hoje, respirando amanhã</p>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Navegação principal">
+        <ul class="nav-list">
+          <li><a href="index.htm" class="nav-link">Início</a></li>
+          <li><a href="projeto.htm" class="nav-link">Projetos</a></li>
+          <li><a href="cadastro.htm" class="nav-link">Cadastro</a></li>
+          <li><a href="contato.htm" class="nav-link active">Contato</a></li>
+        </ul>
+      </nav>
+
+      <button class="btn-burger" aria-label="Abrir menu" aria-expanded="false">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container form-wrap">
+
+        <!-- Formulário -->
+        <form class="form-card" id="contact-form" action="#" method="post" novalidate>
+          <h2>Entre em Contato</h2>
+          <p class="muted">Envie sua mensagem, dúvida ou sugestão e retornaremos o mais rápido possível.</p>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="nome">Nome completo *</label>
+              <input id="nome" name="nome" type="text" required placeholder="Seu nome completo">
+            </div>
+
+            <div class="field">
+              <label for="email">E-mail *</label>
+              <input id="email" name="email" type="email" required placeholder="seu@exemplo.com">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="assunto">Assunto *</label>
+            <input id="assunto" name="assunto" type="text" required placeholder="Assunto da mensagem">
+          </div>
+
+          <div class="field">
+            <label for="mensagem">Mensagem *</label>
+            <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Escreva sua mensagem"></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="reset" class="btn btn-ghost">Limpar</button>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+          </div>
+        </form>
+
+        <!-- Informações de contato -->
+        <aside class="aside-card" aria-labelledby="contact-info-title">
+          <h3 id="contact-info-title">Informações de Contato</h3>
+          <ul class="aside-list">
+            <li><strong>Endereço:</strong> Rua Pedro Pereira, 112 — Jaraguá Do Sul</li>
+            <li><strong>E-mail:</strong> <a href="gabriellipereira527@gmail.com">contato@vidaverde.org</a></li>
+            <li><strong>Telefone:</strong> (47) 99123-5465</li>
+          </ul>
+
+          <div class="aside-note">
+            <p class="muted small">Siga nossas redes sociais e acompanhe nossas ações em tempo real!</p>
+          </div>
+
+          <div class="aside-contact">
+            <strong>Redes sociais:</strong>
+            <p class="muted">
+              <a href="https://www.linkedin.com/in/gabrielli-pereira-342323253/">Linkedin</a> •
+              <a href="https://github.com/gabriellip06">Github</a> •
+            </p>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Vida Verde</strong>
+        <p class="muted">Rua Pedro Pereira, 112 • contato@vidaverde.org</p>
+      </div>
+      <div>
+        <small class="muted">© <span id="year"></span> Vida Verde</small>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Atualiza ano no rodapé
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile nav toggle
+    const burger = document.querySelector('.btn-burger');
+    const nav = document.querySelector('.nav');
+    if (burger) burger.addEventListener('click', () => {
+      const expanded = burger.getAttribute('aria-expanded') === 'true';
+      burger.setAttribute('aria-expanded', String(!expanded));
+      nav.classList.toggle('nav-open');
+    });
+
+    // Validação simples do formulário
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit', (e) => {
+      if (!form.checkValidity()) {
+        e.preventDefault();
+        form.reportValidity();
+        return;
+      }
+      e.preventDefault(); // evitar envio real — exemplo local
+      alert('Mensagem enviada com sucesso! (exemplo local)');
+      form.reset();
+    });
+  </script>
+</body>
+</html>

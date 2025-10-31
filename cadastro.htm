@@ -1,0 +1,160 @@
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vida Verde — Cadastro de Voluntário</title>
+
+  <!-- Fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+  <!-- CSS da página -->
+  <link rel="stylesheet" href="cadastro.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.htm">
+        <img class="logo-img" src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=200&auto=format&fit=crop&ixlib=rb-4.0.3&s=6a2b9c0b1e5cdd8a6e5d8b0c3d5c4a2f" alt="Vida Verde">
+        <div>
+          <h1>Vida Verde</h1>
+          <p class="slogan">Plantando hoje, respirando amanhã</p>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Navegação principal">
+        <ul class="nav-list">
+          <link><a href="index.htm" class="nav-link">Início</a></li>
+          <link><a href="projeto.htm" class="nav-link">Projetos</a></li>
+          <link><a href="cadastro.htm" class="nav-link active">Cadastro</a></li>
+          <link><a href="contato.htm" class="nav-link">Contato</a></li>
+        </ul>
+      </nav>
+
+      <button class="btn-burger" aria-label="Abrir menu" aria-expanded="false">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container form-wrap">
+
+        <!-- Formulário principal -->
+        <form class="form-card" id="volunteer-form" action="#" method="post" novalidate>
+          <h2>Cadastro de Voluntário</h2>
+          <p class="muted">Preencha seus dados para receber convites e atualizações sobre eventos.</p>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="nome">Nome completo *</label>
+              <input id="nome" name="nome" type="text" required placeholder="Seu nome completo">
+            </div>
+
+            <div class="field">
+              <label for="email">E-mail *</label>
+              <input id="email" name="email" type="email" required placeholder="seu@exemplo.com">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="telefone">Telefone</label>
+              <input id="telefone" name="telefone" type="tel" placeholder="(XX) XXXXX-XXXX">
+            </div>
+
+            <div class="field">
+              <label for="cidade">Cidade</label>
+              <input id="cidade" name="cidade" type="text" placeholder="Sua cidade">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="interesse">Onde deseja ajudar?</label>
+            <select id="interesse" name="interesse" required>
+              <option value="">-- Escolha --</option>
+              <option value="reflorestamento">Reflorestamento</option>
+              <option value="horta">Horta</option>
+              <option value="oficinas">Oficinas / Educação</option>
+              <option value="divulgacao">Divulgação</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="mensagem">Mensagem (opcional)</label>
+            <textarea id="mensagem" name="mensagem" rows="4" placeholder="Como prefere ajudar?"></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="reset" class="btn btn-ghost">Limpar</button>
+            <button type="submit" class="btn btn-primary">Enviar cadastro</button>
+          </div>
+        </form>
+
+        <!-- Coluna lateral -->
+        <aside class="aside-card" aria-labelledby="why-title">
+          <h3 id="why-title">Por que se cadastrar?</h3>
+          <ul class="aside-list">
+            <li>Acesso prioritário a plantios e oficinas</li>
+            <li>Convites para treinamentos e eventos</li>
+            <li>Certificado de participação</li>
+            <li>Rede local de voluntariado</li>
+          </ul>
+
+          <div class="aside-note">
+            <p class="muted small">Seus dados são usados apenas para contato relacionado às atividades da Vida Verde. Não compartilhamos suas informações sem consentimento.</p>
+          </div>
+
+          <div class="aside-contact">
+            <strong>Precisa de ajuda?</strong>
+            <p class="muted">Escreva para <a href="gabriellipereira527@gmail.com">contato@vidaverde.org</a> ou ligue (47) 99123-5465</p>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Vida Verde</strong>
+        <p class="muted">Rua Pedro Pereira, 112 — Jaraguá Do Sul • gabriellipereira527@gmail.com</p>
+      </div>
+      <div>
+        <small class="muted">© <span id="year"></span> Vida Verde</small>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // atualiza ano no rodapé
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // menu mobile
+    const burger = document.querySelector('.btn-burger');
+    const nav = document.querySelector('.nav');
+    if (burger) burger.addEventListener('click', () => {
+      const expanded = burger.getAttribute('aria-expanded') === 'true';
+      burger.setAttribute('aria-expanded', String(!expanded));
+      nav.classList.toggle('nav-open');
+    });
+
+    // validação simples + feedback (client-side)
+    const form = document.getElementById('volunteer-form');
+    form.addEventListener('submit', (e) => {
+      if (!form.checkValidity()) {
+        e.preventDefault();
+        // mostra mensagens nativas de validação
+        form.reportValidity();
+        return;
+      }
+      e.preventDefault(); // evitar envio real — exemplo local
+      alert('Obrigado! Seu cadastro foi recebido (exemplo local).');
+      form.reset();
+    });
+  </script>
+</body>
+</html>
