@@ -52,24 +52,6 @@ HTML5
 
 -GitHub Pages (publicação online)
 
-📁 Estrutura de Pastas
-vida-verde/
-│
-├─ index.html
-├─ projeto.html
-├─ cadastro.html
-├─ contato.html
-│
-├─ css/
-│   ├─ index.css
-│   ├─ projeto.css
-│   ├─ cadastro.css
-│   └─ contato.css
-│
-├─ js/          
-│   └─ main.js
-│
-└─ img/          
 
 🚀 Como Usar
 Clone o repositório:
