@@ -1,4 +1,5 @@
-<html lang="pt-BR"></html>
+<!doctype html>
+<html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -6,12 +7,17 @@
 
   <!-- Fontes -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="index.css">
+
+  <!-- Ajuste o caminho se seu CSS está em /css/index.css -->
+  <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-  <header class="site-header">
+  <!-- Skip link para acessibilidade -->
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+  <header class="site-header" role="banner">
     <div class="container header-inner">
-      <a class="brand" href="index.htm">
+      <a class="brand" href="index.html">
         <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=200&auto=format&fit=crop&ixlib=rb-4.0.3&s=6a2b9c0b1e5cdd8a6e5d8b0c3d5c4a2f" alt="Logo Vida Verde" class="logo-img">
         <div class="brand-text">
           <h1>Vida Verde</h1>
@@ -21,10 +27,10 @@
 
       <nav class="nav" aria-label="Navegação principal">
         <ul class="nav-list">
-          <link><a href="index.htm" class="nav-link active">Início</a></li>
-          <link><a href="projeto.htm" class="nav-link">Projetos</a></li>
-          <link><a href="cadastro.htm" class="nav-link">Cadastro</a></li>
-          <link><a href="contato.htm" class="nav-link">Contato</a></li>
+          <li><a href="index.html" class="nav-link active">Início</a></li>
+          <li><a href="projeto.html" class="nav-link">Projetos</a></li>
+          <li><a href="cadastro.html" class="nav-link">Cadastro</a></li>
+          <li><a href="contato.html" class="nav-link">Contato</a></li>
         </ul>
       </nav>
 
@@ -36,7 +42,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main" role="main" tabindex="-1">
     <!-- HERO -->
     <section class="hero" style="background-image: linear-gradient(rgba(3,46,18,0.45), rgba(10,80,36,0.25)), url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=6a2b9c0b1e5cdd8a6e5d8b0c3d5c4a2f');">
       <div class="container hero-grid">
@@ -44,8 +50,8 @@
           <h2>Conectando comunidade e natureza com ações reais</h2>
           <p class="lead">Somos uma ONG dedicada ao reflorestamento urbano, educação ambiental e fortalecimento comunitário. Junte-se a nós: plante, aprenda e transforme sua cidade.</p>
           <div class="hero-ctas">
-            <a class="btn btn-primary" href="projeto.htm">Ver projetos</a>
-            <a class="btn btn-outline" href="cadastro.htm">Quero participar</a>
+            <a class="btn btn-primary" href="projeto.html">Ver projetos</a>
+            <a class="btn btn-outline" href="cadastro.html">Quero participar</a>
           </div>
 
           <div class="stats" role="list" aria-label="Estatísticas da Vida Verde">
@@ -66,7 +72,8 @@
 
         <div class="hero-media" aria-hidden="true">
           <div class="media-card">
-            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="Voluntários plantando mudas">
+            <!-- imagem decorativa: alt vazio porque o container é aria-hidden -->
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="">
             <div class="media-tag">Próximo plantio: <strong>08 Nov 2025</strong></div>
           </div>
         </div>
@@ -100,7 +107,7 @@
       <div class="container">
         <div class="section-head">
           <h2>Projetos em destaque</h2>
-          <a class="link-inline" href="projeto.htm">Ver todos →</a>
+          <a class="link-inline" href="projeto.html">Ver todos →</a>
         </div>
 
         <div class="project-grid">
@@ -124,33 +131,37 @@
         </div>
       </div>
     </section>
-
-    <!-- RODAPÉ -->
-    <footer class="site-footer">
-      <div class="container footer-inner">
-        <div>
-          <strong>Vida Verde</strong>
-          <p class="muted">Rua Pedro Pereira, 112 — Jaraguá Do Sul • gabriellipereira527@gmail.com</p>
-
-      </div>
-      <div class="container copyright">
-        <small>© <span id="year"></span> Vida Verde — Todos os direitos reservados</small>
-      </div>
-    </footer>
   </main>
+
+  <!-- RODAPÉ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div>
+        <strong>Vida Verde</strong>
+        <p class="muted">Rua Pedro Pereira, 112 — Jaraguá Do Sul • gabriellipereira527@gmail.com</p>
+      </div>
+    </div>
+
+    <div class="container copyright">
+      <small>© <span id="year"></span> Vida Verde — Todos os direitos reservados</small>
+    </div>
+  </footer>
 
   <script>
     // Atualiza o ano no rodapé
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // Menu burger (mobile)
+    // Menu burger (mobile) — protegido contra erro se o elemento não existir
     const btn = document.querySelector('.btn-burger');
     const nav = document.querySelector('.nav');
-    btn.addEventListener('click', () => {
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!expanded));
-      nav.classList.toggle('nav-open');
-    });
+    if (btn && nav) {
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('nav-open');
+      });
+    }
   </script>
 </body>
 </html>
