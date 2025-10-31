@@ -4,12 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Vida Verde — Início</title>
-
-  <!-- Fontes -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-
-  <!-- Ajuste o caminho se seu CSS está em /css/index.css -->
-  <link rel="stylesheet" href="css/index.css">
+<head>
+  <link rel="stylesheet" href="css/index.css"
 </head>
 <body>
   <!-- Skip link para acessibilidade -->
@@ -27,10 +24,10 @@
 
       <nav class="nav" aria-label="Navegação principal">
         <ul class="nav-list">
-          <li><a href="index.html" class="nav-link active">Início</a></li>
-          <li><a href="projeto.html" class="nav-link">Projetos</a></li>
-          <li><a href="cadastro.html" class="nav-link">Cadastro</a></li>
-          <li><a href="contato.html" class="nav-link">Contato</a></li>
+          <li><a href="index.html" class="nav-link" data-page="home">Início</a>
+          <li><a href="projeto.html" class="nav-link" data-page="projetos">Projetos</a>
+          <li><a href="cadastro.html" class="nav-link" data-page="cadastro">Cadastro</a>
+          <li><a href="contato.html" class="nav-link"  data-page="contato">Contato</a>
         </ul>
       </nav>
 
@@ -164,4 +161,5 @@
     }
   </script>
 </body>
+<script src="js/spa.js"></script>
 </html>
